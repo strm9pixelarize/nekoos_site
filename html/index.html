@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>nekoOS 0.1 Beta — Sample Page</title>
-  <meta name="description" content="nekoOS 0.1 Beta のサンプル紹介ページです。対応端末ごとに専用ページがあります。">
+  <title>nekoOS 0.5.4 — Pixel 2 XL 対応</title>
+  <meta name="description" content="nekoOS 0.5.4 の紹介ページです。対応端末は Pixel 2 XL（taimen）のみです。">
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261126-1">
   <link rel="stylesheet" href="css/style.css?v=20261126-1">
 </head>
@@ -17,7 +17,7 @@
         <a href="#features">特徴</a>
         <a href="#devices">対応端末</a>
       </nav>
-      <span class="sample-pill">SAMPLE / デザイン確認用</span>
+      <span class="sample-pill">Beta / 個人ビルド</span>
     </div>
   </header>
 
@@ -27,8 +27,8 @@
       <div class="hero-grid">
         <article class="hero-card">
           <div class="eyebrow" id="s-eyebrow">nekoOS Project</div>
-          <h1>neko<span class="os">OS</span> <span id="s-version">0.1 Beta</span></h1>
-          <p class="lead" id="s-lead">LineageOS 22.2（Android 15）をベースにした、小さなカスタム OS プロジェクト。日本の APN、専用ブートアニメーション、nekoOS らしいピンクのテーマを少しずつ育てています。</p>
+          <h1>neko<span class="os">OS</span> <span id="s-version">0.5.4</span></h1>
+          <p class="lead" id="s-lead">LineageOS 22.2（Android 15）をベースにした、Pixel 2 XL（taimen）向けの小さなカスタム OS プロジェクト。KernelSU-Next や OTA 更新、nekoOS らしいピンクのテーマを少しずつ育てています。</p>
           <div class="badges" id="s-badges">
             <span class="badge">Android 15</span>
             <span class="badge">LineageOS 22.2 base</span>
@@ -38,7 +38,7 @@
             <a class="btn btn-primary" href="#devices">対応端末を見る</a>
             <a class="btn btn-ghost" href="#features">特徴を見る</a>
           </div>
-          <p class="muted" id="s-note">※ このページは友人に見せるためのサンプルです。ダウンロードリンクとチェックサムはダミー表示になっています。</p>
+          <p class="muted" id="s-note">※ 現在はベータ／個人ビルドです。公開ダウンロードはまだありません。</p>
         </article>
 
         <aside class="device-card" aria-label="nekoOS イメージ">
@@ -46,10 +46,10 @@
             <div>
               <div class="paw"><svg viewBox="0 0 64 64" aria-hidden="true"><g fill="currentColor"><ellipse cx="10.5" cy="27" rx="5" ry="7.5" transform="rotate(-24 10.5 27)"/><ellipse cx="21.5" cy="18.5" rx="5.5" ry="8" transform="rotate(-8 21.5 18.5)"/><ellipse cx="42.5" cy="18.5" rx="5.5" ry="8" transform="rotate(8 42.5 18.5)"/><ellipse cx="53.5" cy="27" rx="5" ry="7.5" transform="rotate(24 53.5 27)"/><path d="M32 33c8 0 15 7 15 14 0 7-7 10-15 10s-15-3-15-10c0-7 7-14 15-14z"/></g></svg></div>
               <strong>nekoOS</strong>
-              <span id="s-phone-version">0.1 Beta</span>
+              <span id="s-phone-version">0.5.4</span>
             </div>
           </div>
-          <p class="muted" style="color:#ffd2e1; margin:0;">対応端末は下の一覧から選んでください。各端末のダウンロードや更新履歴は専用ページにあります。</p>
+          <p class="muted" style="color:#ffd2e1; margin:0;">対応端末は下の一覧から選んでください。各端末の更新履歴は専用ページにあります。</p>
         </aside>
       </div>
     </div>
@@ -57,19 +57,22 @@
     <!-- について: OS 全体。文面は site.json の about が正 -->
     <section id="about">
       <h2 id="s-about-title">nekoOS について</h2>
-      <div class="note" id="s-about">nekoOS は、日常利用のじゃまをしない範囲で「自分の端末らしく」仕上げていく個人プロジェクトです。対応端末ごとに、まず安定して起動し、更新できる土台を作ることを目標にしています。</div>
+      <div class="note" id="s-about">nekoOS は、日常利用のじゃまをしない範囲で「自分の端末らしく」仕上げていく個人プロジェクトです。対応端末ごとに、まず安定して起動し、更新できる土台を作ることを目標にしています。現在は Pixel 2 XL（taimen）のみに対応しています。</div>
     </section>
 
     <!-- 特徴: OS 全体。項目は site.json の features が正 -->
     <section id="features">
       <h2>特徴</h2>
       <div class="grid" id="s-features">
-        <article class="card"><div class="icon">📶</div><h3>日本の APN を収録</h3><p>日本向けキャリア APN をあらかじめ入れて、初期設定の手間を減らします。</p></article>
-        <article class="card"><div class="icon">🐾</div><h3>専用ブートアニメーション</h3><p>肉球ロゴとピンクのテーマで、起動画面から nekoOS らしく。</p></article>
-        <article class="card"><div class="icon">⬆️</div><h3>Updater / Recovery を nekoOS 化</h3><p>更新画面やリカバリ表示も nekoOS 表記に寄せて、世界観を統一します。</p></article>
-        <article class="card"><div class="icon">📷</div><h3>カメラ体験を重視</h3><p>Pixel らしいカメラ体験をできるだけ残す方針で調整中です。</p></article>
-        <article class="card"><div class="icon">🧩</div><h3>最小限の Google サービス</h3><p>必要なものだけを入れる、軽めの構成を目指します。</p></article>
-        <article class="card"><div class="icon">🔐</div><h3>再ロックを視野に</h3><p>Pixel の仕組みを活かした avb_custom_key による再ロックは、今後のマイルストーンです。</p></article>
+        <article class="card"><div class="icon">🔓</div><h3>KernelSU-Next をカーネルに統合</h3><p>カーネルに組み込んだ KernelSU-Next により、root 管理ができます。</p></article>
+        <article class="card"><div class="icon">🔐</div><h3>カスタム AVB キーによる再ロックに対応</h3><p>カスタム AVB キーを使ってブートローダを再ロックできます。</p></article>
+        <article class="card"><div class="icon">🌐</div><h3>neko Browser を同梱</h3><p>Titanium Browser をベースにした neko Browser を同梱しています。</p></article>
+        <article class="card"><div class="icon">💬</div><h3>Google Messages が標準の SMS アプリ</h3><p>Google Messages を標準の SMS アプリとして使い、RCS に対応します。</p></article>
+        <article class="card"><div class="icon">⬆️</div><h3>OTA 更新に対応</h3><p>OTA による更新に対応し、端末から更新を受け取れます。</p></article>
+        <article class="card"><div class="icon">🎀</div><h3>既定のアクセントカラーはピンク</h3><p>既定のアクセントカラーはピンク（#F77CA9）です。</p></article>
+        <article class="card"><div class="icon">🐾</div><h3>既定のアイコン形状は「Meow」</h3><p>既定のアイコン形状は「Meow」です。</p></article>
+        <article class="card"><div class="icon">🇯🇵</div><h3>nekoOS 機能の日本語ローカライズ</h3><p>nekoOS の機能を日本語にローカライズしています。</p></article>
+        <article class="card"><div class="icon">🧩</div><h3>ミニマルな構成</h3><p>必要なものだけを入れる、軽めのミニマルな構成を目指します。</p></article>
       </div>
     </section>
 
@@ -85,15 +88,9 @@
       <div class="device-list" id="device-list">
         <!-- 静的フォールバック: JS / device.json が読めないときもリンクだけは辿れる -->
         <article class="card device-list-card">
-          <div class="eyebrow">Google / walleye</div>
-          <h3>Pixel 2</h3>
-          <p>nekoOS 0.1 Beta / LineageOS 22.2</p>
-          <div class="actions"><a class="btn btn-primary" href="device.html?d=walleye">この端末のページへ</a></div>
-        </article>
-        <article class="card device-list-card">
           <div class="eyebrow">Google / taimen</div>
           <h3>Pixel 2 XL</h3>
-          <p>nekoOS 0.1 Beta / LineageOS 22.2</p>
+          <p>nekoOS 0.5.4 / LineageOS 22.2</p>
           <div class="actions"><a class="btn btn-primary" href="device.html?d=taimen">この端末のページへ</a></div>
         </article>
       </div>
@@ -102,7 +99,7 @@
 
   <footer>
     <div class="wrap">
-      <p>nekoOS は個人プロジェクトのサンプルページです。Android、Google Pixel、LineageOS の名称は各権利者に帰属します。</p>
+      <p>nekoOS は個人プロジェクトです。Android、Google Pixel、LineageOS の名称は各権利者に帰属します。</p>
       <p>配布時にはカーネルソースとライセンス表示へのリンクをここに掲載します。</p>
     </div>
   </footer>

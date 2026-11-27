@@ -1,84 +1,27 @@
 {
   "devices": [
     {
-      "id": "walleye",
-      "name": "Pixel 2",
-      "codename": "walleye",
-      "maker": "Google",
-      "version": "0.1 Beta",
-      "status": "Beta",
-      "base": "LineageOS 22.2",
-      "theme": "Pink / Paw",
-      "lead": "LineageOS 22.2（Android 15）をベースにした、Pixel 2 向けの小さなカスタム OS プロジェクト。日本の APN、専用ブートアニメーション、nekoOS らしいピンクのテーマを少しずつ育てています。",
-      "badges": [
-        "Android 15",
-        "LineageOS 22.2 base",
-        "Device: walleye",
-        "Status: Beta"
-      ],
-      "about": "nekoOS は、日常利用のじゃまをしない範囲で「自分の端末らしく」仕上げていく個人プロジェクトです。Pixel 2 版は、まず安定して起動し、更新できる土台を作ることを目標にしています。",
-      "download": {
-        "file": "nekoOS-0.1-20261118-OFFICIAL-walleye.zip",
-        "size": "約 1.0 GB",
-        "sha256": "sample-hash-placeholder-for-design-preview",
-        "url": ""
-      },
-      "changelog": [
-        {
-          "date": "2026-11-18",
-          "title": "Beta build — modem / Wi-Fi まわりの修正検証",
-          "body": "通信まわりの修正を含むビルドを作成し、実機での確認を進めています。"
-        },
-        {
-          "date": "2026-11-18",
-          "title": "Beta 6 — KernelSU 対応",
-          "body": "KernelSU をカーネル側に組み込み、データを保持したままの更新テストを実施しました。"
-        },
-        {
-          "date": "2026-11-17",
-          "title": "First beta — walleye 初回ビルド",
-          "body": "nekoOS 0.1 の初回ベータが起動。ブートアニメーション、JP APN、基本表示の nekoOS 化を確認しました。"
-        }
-      ]
-    },
-    {
       "id": "taimen",
       "name": "Pixel 2 XL",
       "codename": "taimen",
       "maker": "Google",
-      "version": "0.1 Beta",
+      "version": "0.5.4",
       "status": "Beta",
       "base": "LineageOS 22.2",
-      "theme": "Pink / Paw",
-      "lead": "LineageOS 22.2（Android 15）をベースにした、Pixel 2 XL 向けの小さなカスタム OS プロジェクト。日本の APN、専用ブートアニメーション、nekoOS らしいピンクのテーマを少しずつ育てています。",
+      "theme": "Pink #F77CA9 / Paw",
+      "lead": "LineageOS 22.2（Android 15）をベースにした、Pixel 2 XL 向けの小さなカスタム OS プロジェクト。KernelSU-Next や OTA 更新、nekoOS らしいピンクのテーマを少しずつ育てています。",
       "badges": [
         "Android 15",
         "LineageOS 22.2 base",
         "Device: taimen",
         "Status: Beta"
       ],
-      "about": "nekoOS は、日常利用のじゃまをしない範囲で「自分の端末らしく」仕上げていく個人プロジェクトです。Pixel 2 XL 版は、まず安定して起動し、更新できる土台を作ることを目標にしています。",
-      "download": {
-        "file": "nekoOS-0.1-20261118-OFFICIAL-taimen.zip",
-        "size": "約 1.0 GB",
-        "sha256": "sample-hash-placeholder-for-design-preview",
-        "url": ""
-      },
+      "about": "nekoOS は、日常利用のじゃまをしない範囲で「自分の端末らしく」仕上げていく個人プロジェクトです。Pixel 2 XL 版は、まず安定して起動し、更新できる土台を作ることを目標にしています。現在はベータ／個人ビルドで、公開ダウンロードはまだありません。",
       "changelog": [
         {
-          "date": "2026-11-18",
-          "title": "Beta build — modem / Wi-Fi まわりの修正検証",
-          "body": "通信まわりの修正を含むビルドを作成し、実機での確認を進めています。"
-        },
-        {
-          "date": "2026-11-18",
-          "title": "Beta 6 — KernelSU 対応",
-          "body": "KernelSU をカーネル側に組み込み、データを保持したままの更新テストを実施しました。"
-        },
-        {
-          "date": "2026-11-17",
-          "title": "First beta — taimen 初回ビルド",
-          "body": "nekoOS 0.1 の初回ベータが起動。ブートアニメーション、JP APN、基本表示の nekoOS 化を確認しました。"
+          "date": "2026-11-27",
+          "title": "nekoOS 0.5.4 リリース",
+          "body": "LineageOS 22.2 / Android 15 ベースのベータ／個人ビルド。Pixel 2 XL（taimen）のみ対応。公開ダウンロードはまだありません。"
         }
       ],
       "installer": {

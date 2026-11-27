@@ -53,7 +53,7 @@ button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));
   <header class="top">
     <div class="brand">
       <span class="cat" aria-hidden="true"><svg viewBox="0 0 64 64" width="36" height="36"><path d="M12 20 L20 10 L26 20 M52 20 L44 10 L38 20 M10 24 C10 44 22 56 32 56 C42 56 54 44 54 24 C54 20 50 18 46 20 C42 16 22 16 18 20 C14 18 10 20 10 24 Z" fill="currentColor"/><circle cx="24" cy="32" r="2.4" fill="#0e0e12"/><circle cx="40" cy="32" r="2.4" fill="#0e0e12"/></svg></span>
-      <div><h1>nekoOS インストーラ <span class="beta">BETA</span></h1><p class="sub">nekoOS 0.4 (beta installer)</p></div>
+      <div><h1>nekoOS インストーラ <span class="beta">BETA</span></h1><p class="sub">nekoOS 0.5.4 (beta installer)</p></div>
     </div>
     <p class="target">対象: <b>Pixel 2 XL (taimen)</b></p>
   </header>
@@ -99,7 +99,7 @@ button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));
     <p>nekoOS は GApps を同梱していません。入れ方を選んでください。<b>この選択でリロックの可否が変わります。</b></p>
     <div class="choice">
       <label class="opt"><input type="radio" name="gapps" value="A" checked />
-        <div><b>A. 後で root（KSU）で入れる（推奨）</b><p class="muted">起動後に KSU マネージャから systemless の GApps モジュールを導入。/system を触らないので <b class="ok-text">リロック可能</b>。GApps は2回目の起動から有効。</p></div></label>
+        <div><b>A. 後で root（KernelSU-Next）で入れる（推奨）</b><p class="muted">起動後に KernelSU-Next マネージャから systemless の GApps モジュールを導入。/system を触らないので <b class="ok-text">リロック可能</b>。GApps は2回目の起動から有効。</p></div></label>
       <label class="opt disabled" id="opt-b"><input type="radio" name="gapps" value="B" disabled />
         <div><b>B. 自分で sideload する（上級）</b><p class="muted">recovery で GApps を自分で sideload。<b class="warn-text">この経路ではリロックできません（アンロックのまま）。</b></p></div></label>
     </div>
@@ -119,8 +119,8 @@ button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));
     <h2>完了</h2>
     <p class="ok-text">書き込みが完了しました。端末を再起動して初期設定を行ってください。</p>
     <div id="gapps-guide-a" class="postbox">
-      <h3>次に：GApps / Integrity（root 経路）</h3>
-      <p>初回起動後、<b>KSU マネージャから systemless の GApps モジュール</b>を導入すると Play が使えます。PIF / keybox モジュールも各自で導入してください。</p>
+      <h3>次に：GApps（root 経路）</h3>
+      <p>初回起動後、<b>KernelSU-Next マネージャから systemless の GApps モジュール</b>を導入すると Play が使えます。</p>
     </div>
     <div id="gapps-guide-b" class="postbox hidden">
       <h3>次に：GApps（sideload 経路）</h3>
@@ -155,7 +155,7 @@ function onAdv(on){const bR=document.querySelector('input[name="gapps"][value="B
 function showDone(branch){if(branch==="B"){hide("gapps-guide-a");show("gapps-guide-b");}else{show("gapps-guide-a");hide("gapps-guide-b");}goStep("done");}
 
 $("btn-start").onclick=()=>goStep("connect");
-$("btn-connect").onclick=async()=>{log("デバイス選択を要求中…（プレビュー）");await sleep(450);log("USB 接続成立。","ok");setText("device-info","product: taimen  /  serial: HT7A1xxxxx  /  unlocked: no  /  slot: a");await sleep(350);log("Pixel 2 XL (taimen) を確認。ロック中 → アンロックへ。");goStep("unlock");};
+$("btn-connect").onclick=async()=>{log("デバイス選択を要求中…（プレビュー）");await sleep(450);log("USB 接続成立。","ok");setText("device-info","product: taimen  /  unlocked: no  /  slot: a");await sleep(350);log("Pixel 2 XL (taimen) を確認。ロック中 → アンロックへ。");goStep("unlock");};
 $("btn-unlock").onclick=async()=>{log("flashing unlock を送信（端末画面で確認）。","warn");await sleep(600);log("アンロック送信（プレビュー）。","ok");goStep("flash");};
 $("btn-unlock-skip").onclick=()=>goStep("flash");
 const PARTS=[["boot","41.9 MB"],["dtbo","8.4 MB"],["vendor","524 MB"],["vbmeta","4.0 KB"],["system","2.50 GB"]];
@@ -166,8 +166,8 @@ document.querySelectorAll('input[name="gapps"]').forEach(r=>r.addEventListener("
 $("adv-enable").addEventListener("change",e=>onAdv(e.target.checked));
 $("btn-gapps-next").onclick=()=>{gappsChoice=document.querySelector('input[name="gapps"]:checked')?.value||"A";
   if(gappsChoice==="B"){log("GApps 方式: B（sideload）。この経路ではリロックしません。","warn");skipped.add(STEPS.indexOf("relock"));showDone("B");}
-  else{log("GApps 方式: A（root / KSU モジュール）。");skipped.delete(STEPS.indexOf("relock"));goStep("relock");}};
-$("btn-relock-yes").onclick=async()=>{log("erase avb_custom_key …","warn");await sleep(350);log("flash avb_custom_key pkmd.bin …","warn");await sleep(350);log("get_unlock_ability: 1（端末画面で目視確認）","warn");await sleep(350);log("flashing lock …","warn");await sleep(450);log("リロック送信（プレビュー）。","ok");showDone("A");};
+  else{log("GApps 方式: A（root / KernelSU-Next モジュール）。");skipped.delete(STEPS.indexOf("relock"));goStep("relock");}};
+$("btn-relock-yes").onclick=async()=>{log("カスタム AVB 鍵を登録しています…","warn");await sleep(350);log("get_unlock_ability: 1（端末画面で目視確認）","warn");await sleep(350);log("flashing lock …","warn");await sleep(450);log("リロック送信（プレビュー）。","ok");showDone("A");};
 $("btn-relock-skip").onclick=()=>showDone("A");
 $("btn-reboot").onclick=()=>log("再起動します…（プレビュー）");
 $("btn-restart").onclick=()=>{$("log").innerHTML="";setProgress(0,"");$("btn-flash").disabled=false;skipped.clear();$("adv-enable").checked=false;onAdv(false);goStep("intro");};
